@@ -1,17 +1,54 @@
-
 package exemploFuncao;
 
 import java.util.Scanner;
 
-
 public class FuncaoComRetorno {
 
-  
     public static void main(String[] args) {
-        Scanner e=new Scanner(System.in);
-  
-      
-        public static void criarMenu() {
+        Scanner e = new Scanner(System.in);
+        int opcao = 1;
+
+        System.out.println("Início do programa!");
+        criarMenu();
+        System.out.print("\n Digite a opção desejada: ");
+        while (opcao != 0) {
+            opcao = e.nextInt();
+            if (opcao == 1) {
+                somar2Numeros();
+            } else if (opcao == 2) {
+                calcQuadrado();
+            } else if (opcao == 3) {
+                raizQuadrada();
+            } else if (opcao == 5) {
+
+                double y = pedirNumero();
+                calcTab(y);
+            } else if (opcao == 4) {
+                calcularDobro();
+//                System.out.println("Digite outra opção: ");
+//                opcao = e.nextInt();
+            } else {
+                System.out.println("Digite um valor válido!");
+
+            }
+            System.out.println("Digite a opção desejada: ");
+        }
+        if (opcao == 0) {
+            System.out.println("Fim.");
+        }
+
+    }
+
+    // não usuamos void por que a função vair tem um retorno do tipo double
+    public static double pedirNumero() {
+        Scanner e = new Scanner(System.in);
+        System.out.println("Digite um número:");
+        double num = e.nextDouble();
+        // depois retornamos o valor digitado pelo usuário para nosso programa
+        return num;
+    }
+
+    public static void criarMenu() {
 
         //Colocar o que vai aconteer ao executar
         System.out.println("Criando menu...");
@@ -34,45 +71,43 @@ public class FuncaoComRetorno {
         System.out.println("A variavel valor vale: " + valor);
     }
 
+// remover o Scanner, o print e o next
+// Trocar tudo isso pelo "pedirnumero()"
+// armazenando em uma variável nesta função
     public static void calcularDobro() {
-        Scanner e = new Scanner(System.in);
+
         double n, dobro;
-        System.out.print("Digite um número: ");
-        n = e.nextDouble();
+        n = pedirNumero();
         dobro = n * 2;
         System.out.println("Dobro de " + n + " = " + dobro);
     }
 
     public static void somar2Numeros() {
-        Scanner e = new Scanner(System.in);
-        int n, o, soma;
-        System.out.print("Digite um número: ");
-        n = e.nextInt();
-        System.out.print("Digite outro número: ");
-        o = e.nextInt();
+
+        double n, o, soma;
+        n = pedirNumero();
+        o = pedirNumero();
         soma = o + n;
         System.out.println("A soma de " + n + " + " + o + " = " + soma);
     }
 
     public static void raizQuadrada() {
-        Scanner e = new Scanner(System.in);
+
         double n, resultado;
-        System.out.print("Digite um número: ");
-        n = e.nextInt();
+        n = pedirNumero();
         resultado = Math.sqrt(n);
         System.out.println("A raiz quadrada de " + n + " = " + resultado);
     }
 
     public static void calcQuadrado() {
-        Scanner e = new Scanner(System.in);
+
         double n, resultado;
-        System.out.print("Digite um número: ");
-        n = e.nextInt();
+        n = pedirNumero();
         resultado = Math.pow(n, 2);
         System.out.println("A raiz quadrada de " + n + " = " + resultado);
     }
 
-    public static void calcTab(int x) {
+    public static void calcTab(double x) {
         for (int i = 1; i <= 10; i++) {
             print(x + " * " + i + " = " + (x * i));
         }
@@ -82,40 +117,6 @@ public class FuncaoComRetorno {
         System.out.println(msg);
     }
 
-    public static void main(String[] args) {
-        Scanner e = new Scanner(System.in);
-        int opcao = 1;
-
-        System.out.println("Início do programa!");
-        criarMenu();
-        System.out.print("\nDigite a opção desejada: ");
-        while (opcao != 0) {
-            opcao = e.nextInt();
-            if (opcao == 1) {
-                somar2Numeros();
-            } else if (opcao == 2) {
-                calcQuadrado();
-            } else if (opcao == 3) {
-                raizQuadrada();
-            } else if (opcao == 5) {
-                System.out.println("Digite um número");
-                int y = e.nextInt();
-                calcTab(y);
-            } else if (opcao == 4) {
-                calcularDobro();
-//                System.out.println("Digite outra opção: ");
-//                opcao = e.nextInt();
-            } else {
-                System.out.println("Digite um valor válido!");
-
-            }
-            System.out.println("Digite a opção desejada: ");
-        }
-        if (opcao == 0) {
-            System.out.println("Fim.");
-        }
-
-    }
-    }
-    
 }
+
+// assistir video site udemy, github
